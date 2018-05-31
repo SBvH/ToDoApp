@@ -1,7 +1,7 @@
 package com.example.sebas.todoapp;
 
 import com.example.sebas.todoapp.roomdb.User;
-
+// Makes the userId available in the whole app, important to display only user-specific to-dos
 public class ApplicationState {
 
     private static ApplicationState instance;

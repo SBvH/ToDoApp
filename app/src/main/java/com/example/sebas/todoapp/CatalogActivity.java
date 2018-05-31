@@ -110,6 +110,7 @@ public class CatalogActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recycler);
 
+        // The callback methods initiated by UI-events will be executed here
         adapter = new ToDoAdapter(toDoList, this, new ToDoAdapter.ToDoAdapterCallback() {
 
 
@@ -175,7 +176,7 @@ public class CatalogActivity extends AppCompatActivity {
                 new AlertDialog.Builder(CatalogActivity.this)
                         .setMessage(R.string.delete_dialog_msg)
                         .setPositiveButton(R.string.delete, (dialog, id) -> {
-                            // User clicked the "Delete" button, so delete the pet.
+
                             long toDoId = toDo.getId();
                             db.getToDoDao().delete(toDoId);
                             updateRecyclerList(currentOrder);

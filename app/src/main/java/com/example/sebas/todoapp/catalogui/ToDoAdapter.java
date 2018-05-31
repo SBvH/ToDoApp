@@ -29,7 +29,7 @@ import java.util.Locale;
 
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
-
+	//Interface for the callback methods.
 	public interface ToDoAdapterCallback {
 		void onToggleStatus(ToDo toDo);
 		void onToggleFavorite(ToDo toDo);
@@ -53,7 +53,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 	}
 
 
-
+	//Adapter for rendering the UI with the cardView.
 	@NonNull
 	@Override
 	public ToDoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,7 +62,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
 		return new ViewHolder(v);
 	}
-
+	//onBindViewHolder gets values form the to-do-Object and set UI, onClickListeners for UI Events
 	@Override
 	public void onBindViewHolder(@NonNull ToDoAdapter.ViewHolder holder, int position) {
 		ToDo toDo = toDoList.get(position);
@@ -95,7 +95,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 		return toDoList.size();
 	}
 
-
+	//Elements of the RecyclerView
 	public class ViewHolder extends RecyclerView.ViewHolder {
 		TextView name, dueDate, description, location;
 		CheckBox status;

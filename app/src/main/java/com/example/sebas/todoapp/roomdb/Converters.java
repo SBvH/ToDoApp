@@ -3,7 +3,7 @@ package com.example.sebas.todoapp.roomdb;
 import android.arch.persistence.room.TypeConverter;
 
 import java.util.Date;
-
+// Converters to display the DateTime properly
 public class Converters {
 	@TypeConverter
 	public static Date fromTimestamp(Long value) {

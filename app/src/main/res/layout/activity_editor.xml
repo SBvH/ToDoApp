@@ -41,13 +41,13 @@
 
             <!-- Name field -->
             <EditText
-                android:id="@+id/edit_pet_name"
+                android:id="@+id/edit_task_name"
                 style="@style/EditorFieldStyle"
                 android:hint="@string/hint_task_name"/>
 
             <!-- Breed field -->
             <EditText
-                android:id="@+id/edit_pet_description"
+                android:id="@+id/edit_task_description"
                 style="@style/EditorFieldStyle"
                 android:layout_height="200dp"
                 android:hint="@string/hint_task_description"/>

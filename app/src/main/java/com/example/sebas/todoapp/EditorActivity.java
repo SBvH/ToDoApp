@@ -20,7 +20,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
@@ -30,15 +29,13 @@ import android.widget.EditText;
 import com.example.sebas.todoapp.roomdb.AppDatabase;
 import com.example.sebas.todoapp.roomdb.ToDo;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 /**
- * Allows user to create a new pet or edit an existing one.
+ * Allows user to create a new task or edit an existing one.
  */
 public class EditorActivity extends AppCompatActivity {
 
@@ -66,8 +63,8 @@ public class EditorActivity extends AppCompatActivity {
 
         db = AppDatabase.getAppDatabase(this);
 
-		mNameEditText = findViewById(R.id.edit_pet_name);
-		mDescriptionEditText = findViewById(R.id.edit_pet_description);
+		mNameEditText = findViewById(R.id.edit_task_name);
+		mDescriptionEditText = findViewById(R.id.edit_task_description);
 		mLocationEditText = findViewById(R.id.edit_location);
 		mFavorite = findViewById(R.id.favbutton);
 		mDateEditText = findViewById(R.id.edit_date);
@@ -183,7 +180,7 @@ public class EditorActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        // If this is a new pet, hide the "Delete" menu item.
+
         if (isNewTask()) {
             MenuItem menuItem = menu.findItem(R.id.action_delete);
             menuItem.setVisible(false);
@@ -195,14 +192,10 @@ public class EditorActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Save" menu option
             case R.id.action_save:
-                //Save the task
 				saveTodo();
-                // Exit activity
                 finish();
                 return true;
-            // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
                 // Pop up confirmation dialog for deletion
                 showDeleteConfirmationDialog();
@@ -219,7 +212,6 @@ public class EditorActivity extends AppCompatActivity {
 		new AlertDialog.Builder(this)
 				.setMessage(R.string.delete_dialog_msg)
 				.setPositiveButton(R.string.delete, (dialog, id) -> {
-					// User clicked the "Delete" button, so delete the pet.
 					db.getToDoDao().delete(toDoId);
 				})
 				.setNegativeButton(R.string.cancel, (dialog, id) -> {

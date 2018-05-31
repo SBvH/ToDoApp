@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
-
+//Class where the to-dos are created, with getter-and settermethods.
 @Entity(tableName = "to_dos")
 public class ToDo {
 

@@ -3,7 +3,7 @@ package com.example.sebas.todoapp.roomdb;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-
+//Class where the users are created, with getter-and settermethods.
 @Entity(tableName = "users")
 public class User {
 
